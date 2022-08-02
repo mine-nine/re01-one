@@ -10,12 +10,45 @@
       body {
         margin: 0;
         height: 100vh;
-        background-color: #deeef3;
+        background-color: #deeef3;  
       }
       /* *{border: 1px solid black;} */
+       *{
+            margin:auto;
+        list-style: none;
+        }
+      .hr1 {
+       background-color: rgb(82, 153, 155);
+      height: 2px;
+       width: 75%;
+        }
+      .banner {
+        width: auto;
+        height:auto;
+        margin: auto;
+      }
+      .imglist {
+        width:auto;
+        height: auto;
+        padding: 0;
+      }
+      .img{
+        width: 30%;
+        right: 49%;
+        position: absolute;
+      }
+      .img1{
+        width: 30%;
+        left: 51%;
+         position: absolute
+      }
+      .imglist li{
+        float: left;
+      }
     </style>
   </head>
   <body>
+    <!-- style="background: linear-gradient(135deg, #4bc0c0, #c779d0, #feac5e)" -->
     <!-- 头部栏 -->
     <div style="background-color: aliceblue; text-align: center; padding: 40px">
       <img src="touxiang.jpg" width="80px" height="80px" />
@@ -26,7 +59,7 @@
       style="
         max-width: 700px;
         margin: 30px auto;
-        padding: 15px;
+        padding: 30px;
         color: rgb(0, 0, 0);
         font-size: 17px;
         line-height: 1.7;
@@ -66,7 +99,7 @@
             }, 1000);
           </script>
         </div>
-        <hr />
+        <hr class="hr1"/>
         <div>
           <script>
             let bt = 0;
@@ -113,16 +146,53 @@
           <p id="word" style="display: none">我懒得很，啥也没写</p>
           <p id="show" style="color: rgb(209, 162, 114)"></p>
         </div>
-        <hr />
-        <div>
-          <p>我的网站</p>
-          <p>第三段</p>
-          <a href="https://kangwenchang.com/">友情链接</a>
+        <hr class="hr1"/>
+          </div>
+          <!-- 建立一个div控件作为图片框 -->
+          <div>
+            <p style="color:rgb(214, 126, 17);"> 经典换头</p>
+          </div>
+<div class="banner">
+    <ul class="imglist">
+        <li><img class="img" src="touxiang.jpg" alt=""/></li>
+        <li><img class="img1" src="touxiang2.jpg" alt=""/></li>
+        <li><img class="img" src="touxiang.jpg" alt=""/></li>
+        <li><img class="img1" src="touxiang.jpg" alt=""/></li>
+    </ul>
+</div>
+    <script type="text/javascript">
+      // index：索引， len：长度
+      var index = 0,
+        len;
+      // 类似获取一个元素数组
+      var imgBox = document.getElementsByClassName("img");
+      var imgBox1 = document.getElementsByClassName("img1");
+      len = imgBox.length;
+      imgBox[index].style.display = "block";
+      imgBox1[index].style.display = "block";
+      // 逻辑控制函数
+      function slideShow() {
+        index++;
+        // 防止数组溢出
+        if (index >= len) index = 0;
+        // 遍历每一个元素
+        for (var i = 0; i < len; i++) {
+          imgBox[i].style.display = "none";
+          imgBox1[i].style.display = "none";
+        }
+        // 每次只有一张图片显示
+        imgBox[index].style.display = "block";
+        imgBox1[index].style.display = "block";
+      }
+      // 定时器，间隔3s切换图片
+      setInterval(slideShow, 3000);
+    </script>
+          <!-- <a href="https://kangwenchang.com/">友情链接</a> -->
         </div>
       </div>
     </zhuquyu>
     <!-- 底部区域 -->
-    <div
+    <!-- <div
       style="
         background-color: aliceblue;
         text-align: center;
@@ -131,7 +201,7 @@
       "
     >
       <p>我的网站</p>
-      <a href="https://kangwenchang.com/">康文昌老师主页 </a>
+      <a href="https://kangwenchang.com/">康文昌老师主页 </a> -->
     </div>
   </body>
 </html>
