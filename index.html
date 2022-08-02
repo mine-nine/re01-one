@@ -19,6 +19,7 @@
     <!-- 头部栏 -->
     <div style="background-color: aliceblue; text-align: center; padding: 40px">
       <img src="touxiang.jpg" width="80px" height="80px" />
+      <img src="touxiang2.jpg" width="80px" height="80px" />
     </div>
     <!-- 主区域 -->
     <zhuquyu
@@ -34,14 +35,81 @@
       "
     >
       <div>
-        <div>
-          <p>我的网站</p>
-          <p>第一段</p>
+        <div
+          style="
+            font-size: 28px;
+            color: rgb(243, 122, 122);
+            text-decoration: none;
+          "
+        >
+          <p>恋爱时间</p>
+          <p id="t1"></p>
+          <script>
+            var old_date = new Date("2018-12-28 00:00:00"); //设置过去的一个时间点，"yyyy-MM-dd HH:mm:ss"格式化日期
+            setInterval(function () {
+              var new_date = new Date(); //新建一个日期对象，默认现在的时间
+              var difftime = (new_date - old_date) / 1000; //计算时间差,并把毫秒转换成秒
+              var days = parseInt(difftime / 86400); // 天  24*60*60*1000
+              var hours = parseInt(difftime / 3600) - 24 * days; // 小时 60*60 总小时数-过去的小时数=现在的小时数
+              var minutes = parseInt((difftime % 3600) / 60); // 分钟 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
+              var seconds = parseInt(difftime % 60); // 以60秒为一整份 取余 剩下秒数
+              var t = document.getElementById("t1");
+              t.innerHTML =
+                days +
+                "天, " +
+                hours +
+                "小时, " +
+                minutes +
+                "分钟, " +
+                seconds +
+                "秒";
+            }, 1000);
+          </script>
         </div>
         <hr />
         <div>
-          <p>我的网站</p>
-          <p>第二段</p>
+          <script>
+            let bt = 0;
+            xianshi = function () {
+              var story = document.getElementById("word");
+              var s = document.getElementById("show");
+              if (bt == 0) {
+                bt++;
+                var i = 0;
+                timer = setInterval(function () {
+                  s.innerHTML = story.innerHTML.substring(0, i);
+                  i++;
+                  if (s.innerHTML == story.innerHTML) {
+                    clearInterval(timer);
+                  }
+                }, 50);
+              } else if (bt == 1) {
+                bt++;
+                s.innerHTML = story.innerHTML.substring(0, 0);
+              } else {
+                bt--;
+                s.innerHTML = story.innerHTML.substring();
+              }
+            };
+          </script>
+          <input
+            style="
+              width: 200px;
+              height: 40px;
+              cursor: pointer;
+              background-color: rgb(240, 176, 194);
+              border-color: antiquewhite;
+              border-width: 3px;
+              border-radius: 10px;
+            "
+            type="button"
+            onclick="xianshi()"
+            value="显示消息"
+          />
+          <p id="word" style="display: none">
+            我是一段话，很长一段话,我是一段话，很长一段话我是一段话，很长一段话我是一段话，很长一段话
+          </p>
+          <p id="show" style="color: rgb(209, 162, 114)"></p>
         </div>
         <hr />
         <div>
