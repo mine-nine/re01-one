@@ -10,7 +10,7 @@
       body {
         margin: 0;
         height: 100vh;
-        background-color: #eee;
+        background-color: #deeef3;
       }
       /* *{border: 1px solid black;} */
     </style>
@@ -75,6 +75,7 @@
               var s = document.getElementById("show");
               if (bt == 0) {
                 bt++;
+                document.getElementById("bottom1").value = "隐藏消息";
                 var i = 0;
                 timer = setInterval(function () {
                   s.innerHTML = story.innerHTML.substring(0, i);
@@ -85,14 +86,17 @@
                 }, 50);
               } else if (bt == 1) {
                 bt++;
+                document.getElementById("bottom1").value = "显示消息";
                 s.innerHTML = story.innerHTML.substring(0, 0);
               } else {
                 bt--;
+                document.getElementById("bottom1").value = "隐藏消息";
                 s.innerHTML = story.innerHTML.substring();
               }
             };
           </script>
           <input
+            id="bottom1"
             style="
               width: 200px;
               height: 40px;
@@ -106,9 +110,7 @@
             onclick="xianshi()"
             value="显示消息"
           />
-          <p id="word" style="display: none">
-            我是一段话，很长一段话,我是一段话，很长一段话我是一段话，很长一段话我是一段话，很长一段话
-          </p>
+          <p id="word" style="display: none">我懒得很，啥也没写</p>
           <p id="show" style="color: rgb(209, 162, 114)"></p>
         </div>
         <hr />
