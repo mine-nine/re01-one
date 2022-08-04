@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>牛马网站</title>
+    <title>u</title>
     <link rel="shortcut icon" href="touxiang.ico" />
     <style>
       body {
         margin: 0;
         background-color: #deeef3;
-        background:url(bg1.png) no-repeat center center fixed;
-                -webkit-background-size: cover;
-				-o-background-size: cover;                
-				background-size: cover;
+        background: url(bg1.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
       }
 
       /* *{border: 1px solid black;} */
@@ -35,37 +35,106 @@
       }
 
       .imglist {
-        width: auto;
-        height: auto;
+        width: 262px;
+        height: 130px;
         padding: 0;
       }
 
       .img {
-        width: 30%;
-        right: 49%;
-        position: absolute;
+        height: 130px;
+        width: 130px;
+        position: relative;
+        border-radius: 10%;
+        margin-right: 2px;
       }
 
       .img1 {
-        width: 30%;
-        left: 51%;
-        position: absolute;
+        height: 130px;
+        width: 130px;
+        position: relative;
+        border-radius: 10%;
       }
 
       .imglist li {
         float: left;
       }
-    
+      .bt {
+        width: 200px;
+        height: 40px;
+        cursor: pointer;
+        background-color: rgb(240, 176, 194);
+        border-color: antiquewhite;
+        font-size: 22px;
+        font-family: "Microsoft STKaiti", 华文楷体;
+        color: rgb(123, 69, 4);
+        border-width: 3px;
+        border-radius: 10px;
+      }
+      /*爱心*/
+      #heart {
+        position: relative;
+        top: 50px;
+        width: 200px;
+        height: 190px;
+      }
+      #heart:before,
+      #heart:after {
+        position: absolute;
+        content: "";
+        left: 100px;
+        top: 0;
+        width: 100px;
+        height: 160px;
+        background: rgb(253, 157, 157);
+        -moz-border-radius: 50px 50px 0 0;
+        border-radius: 50px 50px 0 0;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transform-origin: 0 100%;
+        -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+        -o-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+      }
+      #heart:after {
+        left: 0;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+      }
     </style>
   </head>
 
-  <body >
+  <body>
     <!-- style="background: linear-gradient(135deg, #4bc0c0, #c779d0, #feac5e)" -->
     <!-- 头部栏 -->
-    <div style="text-align: center; padding:0">
+    <div style="text-align: center; padding: 0；">
       <!-- <img src="bg1.png" > -->
-
-      
+      <div id="heart">
+        <div>
+          <p
+            style="
+              position: relative;
+              top: 50px;
+              z-index: 2;
+              font-size: 20px;
+              font-family: 'Microsoft', 楷体;
+            "
+          >
+            第七封来信
+          </p>
+        </div>
+      </div>
     </div>
     <!-- 主区域 -->
     <zhuquyu
@@ -73,7 +142,7 @@
         max-width: 700px;
         margin: 30px auto;
         padding: 30px;
-        color: rgb(0, 0, 0);
+        color: rgb(243, 122, 122);
         font-size: 17px;
         line-height: 1.7;
         text-size-adjust: 100%;
@@ -88,9 +157,27 @@
             text-decoration: none;
           "
         >
-          <p>恋爱时间</p>
-          <p id="t1"></p>
+          <hr class="hr1" />
+          <!-- <p>恋爱时间</p> -->
+          <input
+            id="bottom1"
+            class="bt"
+            type="button"
+            onclick="shijian()"
+            value="恋爱时间"
+          />
+          <p id="t1" style="display: none; font-family: 'Microsoft', 楷体"></p>
           <script>
+            function shijian() {
+              let t = document.getElementById("t1");
+              if (t.style.display == "none") {
+                document.getElementById("bottom1").value = "我们已经相恋";
+                t.style.display = "block";
+              } else {
+                t.style.display = "none";
+                document.getElementById("bottom1").value = "恋爱时间";
+              }
+            }
             var old_date = new Date("2018-12-28 00:00:00"); //设置过去的一个时间点，"yyyy-MM-dd HH:mm:ss"格式化日期
             setInterval(function () {
               var new_date = new Date(); //新建一个日期对象，默认现在的时间
@@ -112,8 +199,14 @@
             }, 1000);
           </script>
         </div>
-        <hr class="hr1" />
-        <div style="padding: 30px;">
+        <!-- <hr class="hr1" /> -->
+        <div
+          style="
+            font-size: 28px;
+            color: rgb(243, 122, 122);
+            text-decoration: none;
+          "
+        >
           <script>
             let bt = 0;
             xianshi = function () {
@@ -121,7 +214,7 @@
               var s = document.getElementById("show");
               if (bt == 0) {
                 bt++;
-                document.getElementById("bottom1").value = "隐藏消息";
+                document.getElementById("bottom2").value = "隐藏消息";
                 var i = 0;
                 timer = setInterval(function () {
                   s.innerHTML = story.innerHTML.substring(0, i);
@@ -132,44 +225,59 @@
                 }, 50);
               } else if (bt == 1) {
                 bt++;
-                document.getElementById("bottom1").value = "显示消息";
+                document.getElementById("bottom2").value = "显示消息";
                 s.innerHTML = story.innerHTML.substring(0, 0);
               } else {
                 bt--;
-                document.getElementById("bottom1").value = "隐藏消息";
+                document.getElementById("bottom2").value = "隐藏消息";
                 s.innerHTML = story.innerHTML.substring();
               }
             };
           </script>
           <input
-            id="bottom1"
-            style="
-              width: 200px;
-              height: 40px;
-              cursor: pointer;
-              background-color: rgb(240, 176, 194);
-              border-color: antiquewhite;
-              border-width: 3px;
-              border-radius: 10px;
-            "
+            id="bottom2"
+            class="bt"
             type="button"
             onclick="xianshi()"
             value="显示消息"
           />
-          <p id="word" style="display: none">我懒得很，啥也没写</p>
-          <p id="show" style="color: rgb(209, 162, 114)"></p>
+          <p id="word" style="display: none">好好学习，天天向上</p>
+          <p id="show" style="font-family: 'Microsoft', 楷体"></p>
         </div>
-        <hr class="hr1" />
+        <!-- <hr class="hr1" /> -->
         <!-- 建立一个div控件作为图片框 -->
-        <div>
-          <p style="color: rgb(214, 126, 17)"></p>
+        <div
+          style="
+            font-size: 28px;
+            color: rgb(243, 122, 122);
+            text-decoration: none;
+          "
+        >
+          <input
+            id="bottom3"
+            class="bt"
+            type="button"
+            onclick="xianshi3()"
+            value="恋爱历程"
+          />
+          <script>
+            function xianshi3() {
+              let t = document.getElementById("licheng");
+              if (t.style.display == "none") {
+                t.style.display = "block";
+              } else {
+                t.style.display = "none";
+              }
+            }
+          </script>
+          <!-- <p style="color: rgb(214, 126, 17)">经典换头</p> -->
         </div>
-        <div class="banner">
+        <div id="licheng" class="banner" style="display: none">
           <ul class="imglist">
             <li><img class="img" src="touxiang.jpg" alt="" /></li>
             <li><img class="img1" src="touxiang2.jpg" alt="" /></li>
             <li><img class="img" src="touxiang.jpg" alt="" /></li>
-            <li><img class="img1" src="touxiang2.jpg" alt="" /></li>
+            <li><img class="img1" src="touxiang.jpg" alt="" /></li>
           </ul>
         </div>
         <script type="text/javascript">
@@ -197,8 +305,25 @@
             imgBox1[index].style.display = "block";
           }
           // 定时器，间隔3s切换图片
-          setInterval(slideShow, 3000);
+          setInterval(slideShow, 1500);
         </script>
+        <div
+          style="
+            font-size: 28px;
+            color: rgb(243, 122, 122);
+            text-decoration: none;
+            padding-bottom: 8px;
+          "
+        >
+          <input
+            id="bottom3"
+            class="bt"
+            type="button"
+            onclick="xianshi4()"
+            value="絮絮叨叨"
+          />
+        </div>
+        <hr class="hr1" />
         <!-- <a href="https://kangwenchang.com/">友情链接</a> -->
       </div>
     </zhuquyu>
